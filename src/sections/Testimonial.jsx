@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Image import (Make sure the path is correct based on your folder structure)
+import loImage from "../assets/lo.jpeg"; 
 
 export default function TestimonialsPage() {
   const testimonials = [
     {
-      quote: "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
+      quote: "This is not a typical portfolio website. I genuinely enjoyed exploring this website. It contains excellent animations, smooth transitions, and many impressive web features. The experience feels almost like watching a movie, with every section showcasing different features and great detailing. My favourite part is the cursor feature and the robot following the cursor.",
+      name: "Astha Vishwakarma",
+      designation: "Software Engineer at HSBC",
+      src: loImage, // Aapki local image yahan apply ho gayi hai
     },
     {
       quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
@@ -51,7 +54,6 @@ export default function TestimonialsPage() {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Contact Page wala Background */
             background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
             position: relative;
             overflow: hidden;
@@ -80,9 +82,9 @@ export default function TestimonialsPage() {
       </style>
 
       <section className="testimonials-wrapper px-6 py-12">
-        {/* Twinkling Stars logic from Contact page */}
+        {/* Twinkling Stars Background */}
         <div className="stars-container">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(40)].map((_, i) => (
             <div
               key={i}
               className="star"
@@ -97,55 +99,81 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        <h2 className="text-4xl font-bold text-white text-center mb-12 z-10" style={{ background: 'linear-gradient(to right, #38bdf8, #fff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-5xl font-bold text-white text-center mb-16 z-10" 
+          style={{ 
+            background: 'linear-gradient(to right, #38bdf8, #ffffff)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent' 
+          }}
+        >
           What People Say
-        </h2>
+        </motion.h2>
 
-        <div className="relative w-full max-w-4xl h-96 flex items-center justify-center z-10">
+        <div className="relative w-full max-w-5xl h-[450px] flex items-center justify-center z-10">
           {testimonials.map((t, i) => {
             let offset = i - index;
             if (offset < -Math.floor(testimonials.length / 2)) offset += testimonials.length;
             if (offset > Math.floor(testimonials.length / 2)) offset -= testimonials.length;
 
-            let scale = offset === 0 ? 1 : 0.8;
-            let x = offset * 120;
-            let opacity = offset === 0 ? 1 : 0.4;
-            let zIndex = 10 - Math.abs(offset);
-
+            const isActive = offset === 0;
+            
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.8, x: 0 }}
-                animate={{ opacity, scale, x, zIndex }}
-                transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                className="absolute w-80 md:w-96 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-white shadow-2xl flex flex-col items-center"
+                initial={false}
+                animate={{ 
+                  opacity: isActive ? 1 : 0.3, 
+                  scale: isActive ? 1 : 0.7, 
+                  x: offset * 250, // Card spacing badha di gayi hai desktop ke liye
+                  zIndex: 10 - Math.abs(offset),
+                  filter: isActive ? "blur(0px)" : "blur(2px)"
+                }}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                className="absolute w-[320px] md:w-[450px] bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 text-white shadow-2xl flex flex-col items-center"
               >
-                <p className="text-lg mb-6 italic text-center text-gray-200">"{t.quote}"</p>
-                <img
-                  src={t.src}
-                  alt={t.name}
-                  className="w-20 h-20 rounded-full mb-4 ring-2 ring-sky-400/50 object-cover"
-                />
-                <h3 className="font-semibold text-xl text-sky-300">{t.name}</h3>
-                <p className="text-gray-400 text-sm">{t.designation}</p>
+                <div className="relative mb-6">
+                  <img
+                    src={t.src}
+                    alt={t.name}
+                    className="w-24 h-24 rounded-full ring-4 ring-sky-500/30 object-cover shadow-lg"
+                  />
+                  {isActive && (
+                    <motion.div 
+                      layoutId="glow"
+                      className="absolute inset-0 rounded-full bg-sky-400/20 blur-xl -z-10"
+                    />
+                  )}
+                </div>
+
+                <p className="text-lg md:text-xl mb-6 italic text-center text-gray-100 leading-relaxed">
+                  "{t.quote}"
+                </p>
+                
+                <div className="text-center">
+                  <h3 className="font-bold text-2xl text-sky-300">{t.name}</h3>
+                  <p className="text-sky-100/60 text-sm tracking-widest uppercase mt-1">{t.designation}</p>
+                </div>
               </motion.div>
             );
           })}
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-between mt-12 w-48 mx-auto z-10">
+        <div className="flex gap-8 mt-16 z-10">
           <button
             onClick={prevSlide}
-            className="px-6 py-2 bg-white/10 border border-white/20 text-white rounded-full hover:bg-sky-500/50 transition-all duration-300 backdrop-blur-md"
+            className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/5 border border-white/10 text-white hover:bg-sky-500/20 transition-all duration-300 backdrop-blur-md"
           >
-            Prev
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
           </button>
           <button
             onClick={nextSlide}
-            className="px-6 py-2 bg-sky-500/80 text-black font-bold rounded-full hover:bg-white transition-all duration-300"
+            className="group flex items-center justify-center w-14 h-14 rounded-full bg-sky-500/80 text-black font-bold hover:bg-white transition-all duration-300 shadow-lg shadow-sky-500/20"
           >
-            Next
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </button>
         </div>
       </section>

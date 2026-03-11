@@ -4,7 +4,7 @@ import p from "../assets/y.jpeg";
 
 export default function About() {
   const stats = [
-    { label: "Experience", value: "0 Years" },
+    { label: "Experience", value: "Fresher" },
     { label: "Speciality", value: "Full Stack Developer" },
     { label: "Focus", value: "Learning Data Science" },
   ];
