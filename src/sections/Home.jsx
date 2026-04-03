@@ -50,7 +50,7 @@ export default function Home() {
       {/* Background component unmounts automatically when page changes */}
       <Background />
 
-      <div className="relative z-10 min-h-screen flex items-center">
+      <div className="relative z-10 min-h-screen flex items-center pt-30 sm:pt-0">
         <div className="w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
           
           <div className="flex-1 text-left will-change-[transform,opacity]">

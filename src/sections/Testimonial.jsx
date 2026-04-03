@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Image import (Make sure the path is correct based on your folder structure)
 import loImage from "../assets/lo.jpeg"; 
+import aoImage from "../assets/av.png"; 
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -11,6 +12,12 @@ export default function TestimonialsPage() {
       name: "Astha Vishwakarma",
       designation: "Software Engineer at HSBC",
       src: loImage, // Aapki local image yahan apply ho gayi hai
+    },
+    {
+      quote: "I appreciated the intent behind creating a user-interactive portfolio. The overall experience across the pages felt smooth and easy to navigate, making the website engaging to explore.However, the design could benefit from slightly limiting the colour variations to create a more cohesive and refined visual experience. Overall, it is a well-thought-out portfolio with a strong interactive approach.",
+      name: "Soumya Vishwakarma",
+      designation: "Architect at Integral Designs International Studio Pvt. Ltd.",
+      src: aoImage, // Aapki local image yahan apply ho gayi hai
     },
     {
       quote: "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",

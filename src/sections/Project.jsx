@@ -1,8 +1,8 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 
-import img1 from "../assets/img1.JPG";
-import img2 from "../assets/img2.JPG";
+import img1 from "../assets/ko.png";
+import img2 from "../assets/i.png";
 import img3 from "../assets/img3.JPG";
 
 
@@ -10,54 +10,26 @@ import img3 from "../assets/img3.JPG";
 const projectsData = [
   {
     id: 1,
-    title: "Portfolio Website",
-    description: "Modern responsive portfolio with animations.",
-    image: img1,
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveLink: "#",
-    githubLink: "#",
-    accentColor: "0,245,160",
+    title: "WanderLust",
+    description: "Full stack travel application.",
+    image: img2,
+    tags: ["Express", "Node", "MongoDB", "Ejs", "Cloudinary"],
+    liveLink: "https://wanderlust-exqa.onrender.com/",
+    githubLink: "https://github.com/Sajalvishwa/wanderlust",
+    accentColor: "220, 53, 69",
+
   },
   {
     id: 2,
-    title: "E-Commerce Store",
-    description: "Full stack ecommerce platform.",
-    image: img2,
-    tags: ["React", "Node", "MongoDB"],
-    liveLink: "#",
-    githubLink: "#",
-    accentColor: "180,77,255",
-  },
-  {
-    id: 3,
-    title: "Task Manager",
-    description: "Productivity web application.",
-    image: img3,
-    tags: ["React", "Firebase"],
-    liveLink: "#",
-    githubLink: "#",
-    accentColor: "0,255,136",
-  },
-  {
-    id: 4,
-    title: "Weather Dashboard",
-    description: "Real time weather forecast.",
+    title: "Portfolio Website",
+    description: "Modern responsive portfolio with animations.",
     image: img1,
-    tags: ["API", "JavaScript"],
-    liveLink: "#",
-    githubLink: "#",
-    accentColor: "0,217,245",
+    tags: ["HTML", "CSS", "JavaScript" ,"React" , "Vite" ,"spline"],
+    liveLink: "https://sajal-vishwakarama.netlify.app/",
+    githubLink: "https://github.com/Sajalvishwa/portfolio",
+    accentColor: "255, 62, 150",
   },
-  {
-    id: 5,
-    title: "Chat Application",
-    description: "Realtime messaging app.",
-    image: img2,
-    tags: ["React", "Socket"],
-    liveLink: "#",
-    githubLink: "#",
-    accentColor: "255,107,53",
-  },
+  
 ];
 
 const Project = () => {
@@ -228,7 +200,7 @@ const Project = () => {
             style={{
               fontSize: "4rem",
               fontWeight: 800,
-              color: `rgba(${project.accentColor}, 0.15)`,
+              color: `rgba(${project.accentColor}, 0.7)`,
               lineHeight: 1,
               marginBottom: "10px",
             }}

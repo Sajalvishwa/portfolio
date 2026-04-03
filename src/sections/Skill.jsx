@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 import {
   FaJava,
@@ -21,6 +22,18 @@ import {
 import { DiNodejsSmall } from "react-icons/di";
 
 export default function Skills() {
+  // ✅ Mobile detect (responsive)
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const skills = [
     { icon: <FaHtml5 />, name: "HTML" },
     { icon: <FaCss3Alt />, name: "CSS" },
@@ -81,11 +94,11 @@ export default function Skills() {
       {/* Marquee */}
       <div className="relative z-10 w-full overflow-hidden">
         <motion.div
-          className="flex gap-20 text-5xl whitespace-nowrap will-change-transform"
+          className="flex gap-10 sm:gap-20 text-4xl sm:text-5xl whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
-            duration: 45,
+            duration: isMobile ? skills.length * 0.5 : 45, // 🔥 mobile fast, desktop slow
             ease: "linear",
           }}
           style={{
@@ -114,25 +127,24 @@ export default function Skills() {
         </motion.div>
       </div>
 
-      {/* Mouse Scroll Indicator */}
+      {/* Mouse Scroll Indicator (hide on mobile) */}
       <motion.div
-  className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-red-400"
-  animate={{ y: [0, 12, 0] }}
-  transition={{ repeat: Infinity, duration: 1.6 }}
->
-  <div className="w-6 h-10 border-2 border-red-500 rounded-full flex justify-center items-start p-1">
-    <motion.div
-      className="w-1 h-2 bg-red-500 rounded"
-      animate={{ y: [0, 10, 0] }}
-      transition={{ repeat: Infinity, duration: 1.6 }}
-    />
-  </div>
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center text-red-400"
+        animate={{ y: [0, 12, 0] }}
+        transition={{ repeat: Infinity, duration: 1.6 }}
+      >
+        <div className="w-6 h-10 border-2 border-red-500 rounded-full flex justify-center items-start p-1">
+          <motion.div
+            className="w-1 h-2 bg-red-500 rounded"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.6 }}
+          />
+        </div>
 
-  <span className="text-xs mt-2 tracking-widest text-red-400">
-    SCROLL
-  </span>
-</motion.div>
-
+        <span className="text-xs mt-2 tracking-widest text-red-400">
+          SCROLL
+        </span>
+      </motion.div>
     </section>
   );
 }
