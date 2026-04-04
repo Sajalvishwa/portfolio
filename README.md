@@ -1,16 +1,77 @@
-# React + Vite
+🚀 Sajal Vishwakarma – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+🌐 Live Demo: https://portfolio-omega-seven-l7y6bvxpew.vercel.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📂 GitHub Repo: https://github.com/Sajalvishwa/portfolio
+
+✨ About the Project
+
+This is my personal developer portfolio built using modern frontend technologies.
+It showcases my skills, projects, and experience as a Full Stack Developer (MERN Track).
+
+The goal of this portfolio is to present my work in a clean, interactive, and responsive way for recruiters and collaborators.
+
+⚙️ Tech Stack
+⚛️ React.js
+🎨 HTML5, CSS3
+💡 JavaScript (ES6+)
+📱 Responsive Web Design
+🚀 Vercel (Deployment)
+📌 Features
+
+✔️ Fully Responsive UI (Mobile + Desktop)
+✔️ Smooth and clean navigation
+✔️ Projects showcase section
+✔️ About Me section
+✔️ Contact section
+✔️ Fast loading optimized build
+✔️ Deployed on Vercel
+
+🖼️ Preview
+
+🔗 Live Website:
+https://portfolio-omega-seven-l7y6bvxpew.vercel.app/
+
+📁 Folder Structure
+portfolio/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── App.js
+│   └── index.js
+│
+├── package.json
+└── README.md
+🚀 Run Locally
+git clone https://github.com/Sajalvishwa/portfolio.git
+cd portfolio
+npm install
+npm start
+📊 GitHub Stats (Optional Add-on)
+
+If you want stats in future, add this 👇
+
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=Sajalvishwa&show_icons=true&theme=radical)
+🌱 Future Improvements
+🌙 Dark / Light Mode toggle
+✨ Framer Motion animations
+🧠 Add blog section
+⚡ Improve SEO performance
+📩 Backend contact form integration
+👨‍💻 Developer
+
+Sajal Vishwakarma
+
+GitHub: @Sajalvishwa
+Portfolio: https://portfolio-omega-seven-l7y6bvxpew.vercel.app/
+⭐ Support
+
+If you like this project, don’t forget to give it a ⭐ on GitHub!
