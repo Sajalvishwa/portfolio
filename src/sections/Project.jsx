@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 
 import img1 from "../assets/ko.png";
 import img2 from "../assets/i.png";
-import img3 from "../assets/img3.JPG";
+import img3 from "../assets/Screenshot 2026-04-05 124850.png";
 
 
 
@@ -21,6 +21,16 @@ const projectsData = [
   },
   {
     id: 2,
+    title: "Trading App",
+    description: "A modern Zerodha-inspired stock trading platform",
+    image: img3,
+    tags: ["HTML", "CSS", "JavaScript" ,"React" , "Supabase" , "PostgreSQL" , "Vercel"],
+    liveLink: "https://zerodha-clone-gamma-liard.vercel.app/",
+    githubLink: "https://github.com/Sajalvishwa/Zerodha-clone",
+    accentColor: "255, 62, 150",
+  },
+  {
+    id: 3,
     title: "Portfolio Website",
     description: "Modern responsive portfolio with animations.",
     image: img1,
